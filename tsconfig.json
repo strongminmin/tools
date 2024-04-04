@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "rootDir": ".",
+      "outDir": "dist",
+      "target": "ESNext",
+      "module": "ESNext",
+      "removeComments": true,
+      "moduleResolution": "Node",
+      "preserveConstEnums": true,
+      "declaration": true,
+      "noEmitOnError": true,
+      "paths": {
+        "@ximina/*": ["packages/*/src"]
+      },
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictBindCallApply": true,
+      "strictPropertyInitialization": false,
+      "noImplicitThis": true,
+      "alwaysStrict": true,
+      "typeRoots": ["node_modules/@types"],
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "esModuleInterop": true
+    },
+    "include": ["packages/*/src"],
+    "exclude": ["packages/*/dist"]
+  }
