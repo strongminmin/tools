@@ -1,0 +1,41 @@
+{
+  "name": "@ximina/utils",
+  "version": "0.0.1",
+  "description": "ximina utils module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "unbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:strongminmin/tools.git",
+    "directory": "package/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/strongminmin/tools/issues"
+  },
+  "homepage": "https://github.com/strongminmin/tools",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "tools",
+    "utils",
+    "ximina",
+    "typescript"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "ximina",
+  "license": "MIT"
+}
