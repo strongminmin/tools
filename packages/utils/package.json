@@ -1,6 +1,6 @@
 {
   "name": "@ximina/utils",
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.4",
   "description": "ximina utils module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
