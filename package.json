@@ -9,7 +9,8 @@
     "format": "eslint --fix . --ext .js,.ts",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add ./CHANGELOG.md",
     "ci": "bumpp package.json packages/*/package.json --commit --push --tag",
-    "release": "run-s build ci"
+    "release": "run-s build ci",
+    "docs": "rimraf docs && typedoc packages/*/src/index.ts"
   },
   "publishConfig": {
     "directory": "packages/*"
@@ -28,6 +29,7 @@
     "lint-staged": "^15.2.2",
     "npm-run-all": "^4.1.5",
     "rimraf": "^5.0.5",
+    "typedoc": "^0.25.12",
     "typescript": "^5.4.3",
     "unbuild": "^2.0.0"
   },
