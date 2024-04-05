@@ -1,0 +1,49 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2.2.4
+      with: 
+        version: 7.11.0
+      
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - run: npx conventional-github-releaser -p angular
+      continue-on-error: true
+      env:
+        CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Install Dependencies
+      run: pnpm install
+    - name: Build
+      run: pnpm run build
+    - name: Release
+      run: pnpm -r publish --access public --no-git-checks
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+        
+    - name: Build docs
+      run: pnpm run docs
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './docs'
+    - name: Deploy to GitHub pages
+      id: deployment
+      uses: actions/deploy-pages@v4
